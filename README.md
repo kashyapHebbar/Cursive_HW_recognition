@@ -1,4 +1,4 @@
-Of course, here is a refined README template for your Cursive Handwriting Recognition project:
+
 
 ---
 
