@@ -28,30 +28,10 @@ Users can simply upload an image containing cursive handwriting through our intu
 
 ## Installation & Usage
 
+Instructions on how to install and run your code. For example:
+
 ```sh
 git clone https://github.com/kashyapHebbar/Cursive_HW_recognition.git
-cd Cursive_HW_recognition
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-```
-
-### Train
-
-```sh
-python train_resnet_model.py --az a_z_handwritten_data.csv --model handwriting.model --plot plot.png
-```
-
-### Inference (CLI)
-
-```sh
-python test_handwriting.py --model handwriting.model --image images/myimage.jpeg --min-confidence 0.5 --no-display
-```
-
-### Inference (GUI)
-
-```sh
-python gui.py
 ```
 
 ## How It Works
