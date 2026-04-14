@@ -62,6 +62,12 @@ The user uploads an image containing handwritten text via the user interface. Th
 
 Future enhancements may include expanding the capabilities of the system to recognize more diverse handwriting styles and languages, and improving the user interface for a more seamless user experience.
 
+For an advanced production-grade roadmap, see `ADVANCED_OCR_ARCHITECTURE.md`.
+
+For a prioritized implementation plan (Epics → Stories → Tasks), see `IMPLEMENTATION_BACKLOG.md`.
+
+For a GitHub Issues-ready backlog template, see `GITHUB_ISSUES_BACKLOG.md`.
+
 ## Acknowledgements
 
 This project utilizes the power of deep learning provided by TensorFlow/Keras libraries, and the efficient image processing capabilities of OpenCV.
