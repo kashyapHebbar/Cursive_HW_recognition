@@ -28,6 +28,10 @@ ap.add_argument("-m", "--model", type=str, required=True,
 	help="path to output trained handwriting recognition model")
 ap.add_argument("-p", "--plot", type=str, default="plot.png",
 	help="path to output training history file")
+ap.add_argument("--montage", type=str, default="ocr_montage.png",
+	help="path to save OCR montage preview")
+ap.add_argument("--show-montage", action="store_true",
+	help="display the montage window (disabled by default for headless runs)")
 args = vars(ap.parse_args())
 
 # initialize the number of epochs to train for, initial learning rate,
@@ -91,7 +95,7 @@ aug = ImageDataGenerator(
 
 # initialize and compile our deep neural network
 print("[INFO] compiling model...")
-opt = SGD(lr=INIT_LR, decay=INIT_LR / EPOCHS)
+opt = SGD(learning_rate=INIT_LR, decay=INIT_LR / EPOCHS)
 model = ResNet.build(32, 32, 1, len(le.classes_), (3, 3, 3),
 	(64, 64, 128, 256), reg=0.0005)
 model.compile(loss="categorical_crossentropy", optimizer=opt,
@@ -167,6 +171,10 @@ for i in np.random.choice(np.arange(0, len(testY)), size=(49,)):
 # construct the montage for the images
 montage = build_montages(images, (96, 96), (7, 7))[0]
 
-# show the output montage
-cv2.imshow("OCR Results", montage)
-cv2.waitKey(0)
+# save the output montage
+cv2.imwrite(args["montage"], montage)
+
+# optionally show the output montage
+if args["show_montage"]:
+	cv2.imshow("OCR Results", montage)
+	cv2.waitKey(0)
